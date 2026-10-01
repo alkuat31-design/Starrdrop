@@ -26,6 +26,8 @@ jobs:
 
     - name: Build with Buildozer
       run: |
+        # API мен кілт талап етпейтін debug форматына автоматты ауыстыру
+        sed -i 's/android.api =.*/android.api = 33/g' buildozer.spec || true
         yes | buildozer -v android debug
 
     - name: Upload APK Artifact
